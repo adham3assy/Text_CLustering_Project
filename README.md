@@ -28,7 +28,7 @@ The **People Wikipedia Dataset** contains structured biographical articles of no
 
 ## Methodology
 
-### 1. Data Preprocessing 🧹
+### 1. Data Preprocessing 🪹
 
 Before applying clustering algorithms, the raw data needs to be cleaned and processed:
 
@@ -37,7 +37,8 @@ Before applying clustering algorithms, the raw data needs to be cleaned and proc
 - **Lemmatization**: Normalize words to their base form (e.g., "running" → "run").
 
 
-### 2. Feature Extraction 🔢
+
+### 2. Feature Extraction 📃
 
 To convert the text data into numerical features, several methods are applied:
 
@@ -68,6 +69,7 @@ We visualize clustering results to aid understanding and interpretability:
 
 ## 📁 Project Structure
 
+```
 people-wikipedia-clustering/
 ├── 📦 Models/                        # Trained clustering models
 │   ├── kmeans_model.pkl             # Saved K-Means model
@@ -89,20 +91,10 @@ people-wikipedia-clustering/
 │   ├── visualization.py            # Dimensionality reduction, plots
 │   └── main.py                     # Run full pipeline end-to-end
 │
-├── 📑 requirements.txt             # Python dependencies
+├── 📁 requirements.txt             # Python dependencies
 ├── 📄 README.md                    # Project documentation (this file)
 └── 🚀 app.py                       # (Optional) Web interface or API
-
-
-### Directory and File Descriptions:
-
-- **📦 Models/**: Stores the trained models after applying clustering algorithms.
-- **🧑‍💻 notebooks/**: Contains Jupyter notebooks used for data exploration, experimentation, and analysis.
-- **📊 results/**: Stores the output of clustering results, including visualizations and reports.
-- **📝 src/**: Main directory for source code, including modules for preprocessing, feature extraction, clustering, evaluation, and visualization.
-- **📑 requirements.txt**: List of Python libraries required to run the project (e.g., `scikit-learn`, `pandas`, `gensim`, `matplotlib`).
-- **📄 README.md**: Documentation explaining the project, its methodology, and usage.
-- **🚀 app.py**: Main script for deploying the model, providing a user interface, or exposing an API for interaction.
+```
 
 ---
 
@@ -111,6 +103,10 @@ people-wikipedia-clustering/
 - **Programming Language**: Python
 - **Libraries**:
   - **Data Handling**: pandas, NumPy
-  - **Text Processing**: NLTK, spaCy, regex
+  - **Text Processing**: NLTK , regex
   - **Machine Learning**: scikit-learn, gensim
-  - **Visualization**: matplotlib, seaborn, Plotly (optional for interactive visualizations)
+  - **Visualization**: matplotlib, seaborn
+
+---
+
+
