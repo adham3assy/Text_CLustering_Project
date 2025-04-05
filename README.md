@@ -73,11 +73,11 @@ We visualize clustering results to aid understanding and interpretability:
 people-wikipedia-clustering/
 ├── 📦 Models/                        # Trained clustering models
 │   ├── kmeans_model.pkl             # Saved K-Means model
-│   └── hierarchical_model.pkl       # Saved Hierarchical model
+│   └── tfidf_vectorizer.pkl       # Saved tfidf vectorizer
 │
 ├── 🧑‍💻 notebooks/                   # Jupyter notebooks for analysis
-│   ├── 01_data_exploration.ipynb    # Data loading and EDA
-│   └── 02_clustering_analysis.ipynb # Clustering and visualization
+│   ├── txt_eda.ipynb               # Data loading and EDA
+│   
 │
 ├── 📊 results/                      # Clustering results and plots
 │   ├── clusters.csv                 # Cluster labels per biography
@@ -93,7 +93,7 @@ people-wikipedia-clustering/
 │
 ├── 📁 requirements.txt             # Python dependencies
 ├── 📄 README.md                    # Project documentation (this file)
-└── 🚀 app.py                       # (Optional) Web interface or API
+└── 🚀 app.py                       # Web interface or API
 ```
 
 ---
