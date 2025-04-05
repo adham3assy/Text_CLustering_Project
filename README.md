@@ -1,67 +1,116 @@
-# Text Clustering Project (People Wikipedia Dataset)
+# Text Clustering Project: People Wikipedia Dataset
 
-## Overview  
+## Overview
 
-This project applies **unsupervised learning techniques** to cluster biographical articles from the **People Wikipedia Dataset**. The goal is to uncover relationships between individuals based on textual similarities in their biographies, such as professional background, historical significance, or shared attributes.  
+This project applies **unsupervised learning** techniques to cluster biographical articles from the **People Wikipedia Dataset**. The goal is to uncover relationships between individuals based on textual similarities in their biographies, such as professional background, historical significance, or shared attributes. The ultimate aim is to group individuals into meaningful clusters that reveal hidden patterns, insights, and connections.
 
-## Dataset: People Wikipedia  
+---
 
-### Description  
-The **People Wikipedia Dataset** consists of structured biographical articles of notable individuals extracted from Wikipedia. The dataset provides an opportunity to analyze how people can be grouped based on the content of their biographies.  
+## Dataset: People Wikipedia
 
-### Features  
-- **URI**: A unique identifier for each person’s Wikipedia page.  
-- **Name**: The full name of the individual.  
-- **Text**: Extracted biography from Wikipedia, containing information about their profession, achievements, and historical context.  
+### Description
 
-### Use Cases  
-- Cluster individuals based on textual similarities.  
-- Identify common patterns in professions, historical relevance, or fields of work.  
-- Provide meaningful insights into biographical relationships.  
+The **People Wikipedia Dataset** contains structured biographical articles of notable individuals extracted from Wikipedia. Each entry includes biographical information such as profession, achievements, and historical context. This dataset serves as a foundation for exploring how people can be grouped based on shared attributes or life events.
 
-## Methodology  
+### Features
 
-### 1. Data Preprocessing  
-- **Text Cleaning**: Removing punctuation, special characters, and stop words.  
-- **Tokenization**: Splitting text into words or phrases.  
-- **Lemmatization**: Normalizing words to their base form.  
+- **URI**: A unique identifier for each person’s Wikipedia page.
+- **Name**: The full name of the individual.
+- **Text**: Extracted biography containing detailed information about their profession, achievements, and historical context.
 
-### 2. Feature Extraction  
-- **TF-IDF Vectorization**: Converts text into numerical features based on term frequency and inverse document frequency.  
-- **Word Embeddings (Optional)**: Techniques like **Word2Vec** or **GloVe** for better semantic representation.  
+### Use Cases
 
-### 3. Clustering Algorithms  
-- **K-Means Clustering**: Groups biographies based on feature similarity.  
-- **Hierarchical Clustering**: Creates a tree-based structure of nested clusters.    
+- Group individuals based on shared professional backgrounds, life events, or common themes.
+- Identify patterns in various domains like professions, historical significance, or geography.
+- Provide insights into the relationships between individuals, helping researchers understand how people are connected.
 
-### 4. Evaluation Metrics  
-- **Silhouette Score**: Measures cluster cohesion and separation.  
-    
-### 5. Visualization Techniques  
-- **PCA**: Reducing dimensionality for cluster visualization.  
-- **Dendrograms**: For hierarchical clustering visualization.  
+---
 
-## Project Structure  
+## Methodology
 
-├── Models/ # Trained clustering models
-├── notebooks/ # Jupyter notebooks for data exploration
-├── results/ # Cluster results and visualizations
-├── src/
-│ ├── preprocessing.py # Text cleaning and preprocessing
-│ ├── feature_extraction.py # TF-IDF and embeddings
-│ ├── clustering.py # Clustering algorithm implementations
-│ ├── evaluation.py # Metrics calculation
-│ ├── visualization.py # Graphs and plots
-│ ├── main.py # Pipeline execution
-├── requirements.txt # Required Python libraries
-├── README.md # Project documentation
-└── app.py # Main script for deployment
+### 1. Data Preprocessing 🧹
 
-## Technologies Used  
+Before applying clustering algorithms, the raw data needs to be cleaned and processed:
 
-- **Programming Language**: Python  
-- **Libraries**:  
-  - **Data Handling**: pandas, NumPy  
-  - **Text Processing**: NLTK 
-  - **Machine Learning**: scikit-learn, gensim  
-  - **Visualization**: matplotlib, seaborn 
+- **Text Cleaning**: Remove punctuation, special characters, and stop words.
+- **Tokenization**: Split text into words or phrases (tokens) to prepare for feature extraction.
+- **Lemmatization**: Normalize words to their base form (e.g., "running" → "run").
+
+
+### 2. Feature Extraction 🔢
+
+To convert the text data into numerical features, several methods are applied:
+
+- **TF-IDF Vectorization**: Converts text into numerical features based on Term Frequency-Inverse Document Frequency (TF-IDF). This method highlights important words in each biography while minimizing common words that don't add much value.
+- **Word Embeddings (Optional)**: Techniques such as **Word2Vec** or **GloVe** are used to create semantic representations of words, capturing contextual meaning and relationships between words across documents.
+
+### 3. Clustering Algorithms 🧠
+
+We apply various unsupervised clustering algorithms to group the biographies:
+
+- **K-Means Clustering**: Partitions individuals into k clusters based on feature similarity. Optimal k is determined using methods like the **elbow method** or **silhouette analysis**.
+- **Hierarchical Clustering**: Builds a tree-like structure of nested clusters (dendrograms), allowing for hierarchical grouping.
+
+### 4. Evaluation Metrics 📊
+
+To assess the quality of clustering results:
+
+- **Silhouette Score**: Measures how similar an individual is to its own cluster compared to other clusters. Higher scores indicate better-defined clusters.
+
+### 5. Visualization Techniques 📉
+
+We visualize clustering results to aid understanding and interpretability:
+
+- **Principal Component Analysis (PCA)**: Reduces the dimensionality of the feature space for easy visualization of clusters.
+- **Dendrograms**: For hierarchical clustering, dendrograms visually represent how clusters are merged.
+
+---
+
+## 📁 Project Structure
+
+people-wikipedia-clustering/
+├── 📦 Models/                        # Trained clustering models
+│   ├── kmeans_model.pkl             # Saved K-Means model
+│   └── hierarchical_model.pkl       # Saved Hierarchical model
+│
+├── 🧑‍💻 notebooks/                   # Jupyter notebooks for analysis
+│   ├── 01_data_exploration.ipynb    # Data loading and EDA
+│   └── 02_clustering_analysis.ipynb # Clustering and visualization
+│
+├── 📊 results/                      # Clustering results and plots
+│   ├── clusters.csv                 # Cluster labels per biography
+│   └── cluster_visualizations/     # PCA, t-SNE, dendrogram images
+│
+├── 📝 src/                          # Source code for pipeline
+│   ├── preprocessing.py            # Text cleaning and lemmatization
+│   ├── feature_extraction.py       # TF-IDF & embedding generation
+│   ├── clustering.py               # K-Means & Hierarchical logic
+│   ├── evaluation.py               # Metrics: silhouette, ARI, etc.
+│   ├── visualization.py            # Dimensionality reduction, plots
+│   └── main.py                     # Run full pipeline end-to-end
+│
+├── 📑 requirements.txt             # Python dependencies
+├── 📄 README.md                    # Project documentation (this file)
+└── 🚀 app.py                       # (Optional) Web interface or API
+
+
+### Directory and File Descriptions:
+
+- **📦 Models/**: Stores the trained models after applying clustering algorithms.
+- **🧑‍💻 notebooks/**: Contains Jupyter notebooks used for data exploration, experimentation, and analysis.
+- **📊 results/**: Stores the output of clustering results, including visualizations and reports.
+- **📝 src/**: Main directory for source code, including modules for preprocessing, feature extraction, clustering, evaluation, and visualization.
+- **📑 requirements.txt**: List of Python libraries required to run the project (e.g., `scikit-learn`, `pandas`, `gensim`, `matplotlib`).
+- **📄 README.md**: Documentation explaining the project, its methodology, and usage.
+- **🚀 app.py**: Main script for deploying the model, providing a user interface, or exposing an API for interaction.
+
+---
+
+## Technologies Used ⚙️
+
+- **Programming Language**: Python
+- **Libraries**:
+  - **Data Handling**: pandas, NumPy
+  - **Text Processing**: NLTK, spaCy, regex
+  - **Machine Learning**: scikit-learn, gensim
+  - **Visualization**: matplotlib, seaborn, Plotly (optional for interactive visualizations)
