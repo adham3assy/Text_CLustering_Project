@@ -1,19 +1,3 @@
-# import joblib
-# import streamlit as st
-# from src.preprocessing import preprocessing
-# from src.feature_extraction import TF_idf
-# from clustering import kmeans_clustering
-# import matplotlib.pyplot as plt
-# from visualization import plot_clusters
-
-
-# # Save trained KMeans model
-# kmeans_model = joblib.load('Models/kmeans_model.pkl')
-# # Save TF-IDF vectorizer
-# tfidf_vectorizer = joblib.load('Models/tfidf_vectorizer.pkl')
-
-
-# print("Models saved successfully!")
 
 import streamlit as st
 import joblib
